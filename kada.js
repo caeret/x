@@ -19,21 +19,12 @@
 
 var body = $response.body;
 
-if ($request.path.indexOf('/book2/info.json?collectId=') === 0) {
-  var obj = JSON.parse(body);
-  // obj['data'][0]['data']['unLock'] = true;
-  // obj['data'][0]['data']['trialReadingPages'] = obj['data'][0]['data']['pageCount'];
-  // obj['data'][0]['data']['literacyTrialReadingPages'] = obj['data'][0]['data']['pageCount'];
-  obj['data'][0]['data']['bookVip'] = 0;
-  body = JSON.stringify(obj);
-} else if ($request.path.indexOf('/book2/getCollectItems.json?collectId=') === 0) {
-  var obj = JSON.parse(body);
-  obj['data']['items'].map(item => {
-    item['bookVip'] = 0;
-    return item;
-  })
-  body = JSON.stringify(obj);
-}
+ var obj = JSON.parse(body);
+// obj['data'][0]['data']['unLock'] = true;
+obj['data'][0]['data']['trialReadingPages'] = obj['data'][0]['data']['pageCount'];
+obj['data'][0]['data']['literacyTrialReadingPages'] = obj['data'][0]['data']['pageCount'];
+obj['data'][0]['data']['bookVip'] = 0;
+body = JSON.stringify(obj);
 
 console.log(body);
 
