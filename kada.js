@@ -21,9 +21,11 @@ var body = $response.body;
 var obj = JSON.parse(body);
 
 obj['data'][0]['data']['unLock'] = true;
+obj['data'][0]['data']['trialReadingPages'] = obj['data'][0]['data']['pageCount'];
+obj['data'][0]['data']['literacyTrialReadingPages'] = obj['data'][0]['data']['pageCount'];
+
 body = JSON.stringify(obj);
 
-console.log(obj['data'][0]['data']['unLock']);
 console.log(body);
 
 $done(body);
