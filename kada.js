@@ -23,6 +23,7 @@ var obj = JSON.parse(body);
 obj['data'][0]['data']['unLock'] = true;
 body = JSON.stringify(obj);
 
+console.log(obj['data'][0]['data']['unLock']);
 console.log(body);
 
 $done(body);
