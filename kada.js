@@ -27,6 +27,7 @@ obj['data'][0]['data']['bookVip'] = 0;
 
 body = JSON.stringify(obj);
 
+console.log($request.path);
 console.log(body);
 
 $done(body);
