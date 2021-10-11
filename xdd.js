@@ -19,12 +19,15 @@
 
 var body = $response.body;
 
+console.log($request.url);
+console.log($request.url.indexOf('goods.get_detail'));
+
 if ($request.url.indexOf('goods.get_detail') !== -1) {
   var obj = JSON.parse(body);
   obj['goods']['video'] = obj['goods']['brief_video'];
   body = JSON.stringify(obj);
 }
 
-console.log(body);
+// console.log(body);
 
 $done(body);
